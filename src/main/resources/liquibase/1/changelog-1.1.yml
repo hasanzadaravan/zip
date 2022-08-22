@@ -1,0 +1,45 @@
+databaseChangeLog:
+- changeSet:
+    id: Create Persons table
+    author: Ravan Hasanzada
+    changes:
+      - createTable:
+          tableName: persons
+          columns:
+            - column:
+                name: id
+                type: bigint
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+                remarks: id of persons
+            - column:
+                name: name
+                type: varchar(64)
+                remarks: name of persons
+                constraints:
+                  nullable: false
+            - column:
+                name: surname
+                type: varchar(64)
+                remarks: surname of persons
+                constraints:
+                  nullable: false
+            - column:
+                name: finger_id
+                type: bigint
+                remarks: id of FingerPath
+                constraints:
+                  foreignKeyName: fk_persons_to_fingers
+                  references: fingers(id)
+                  nullable: false
+            - column:
+                name: date
+                type: timestamp
+                defaultValue: now()
+                constraints:
+                  nullable: false
+                remarks: When the record created
+
+          remarks: Table to store information about persons

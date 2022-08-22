@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create FingerPath table
+      author: Ravan Hasanzada
+      changes:
+        - createTable:
+            tableName: fingers
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: id of fingers
+
+
+            remarks: Table to store information about fingers
